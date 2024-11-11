@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Richard Yang">
+    <title>Guessing Game</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <h1>Guessing Game</h1>
+    <script>
+        let randomNumber = Math.floor(Math.random() * 10) + 1;
+        let guessesUsed = 1;
+        while (true) {
+            let playerChoice = prompt("Guess a number between 1 and 10");
+            if (playerChoice == randomNumber) {
+                alert(`You guessed it in ${guessesUsed} guesses!`);
+                if (confirm("Do you want to play again?")) {
+                    randomNumber = Math.floor(Math.random() * 10) + 1;
+                    guessesUsed = 1;
+                    continue;
+                }
+                else {
+                    break;
+                }
+            }
+            else if (playerChoice > randomNumber) {
+                alert("Guess was too high, guess again");
+            }
+            else if (playerChoice < randomNumber) {
+                alert("Guess was too low, guess again");
+            }
+            else {
+                alert("Invalid input, please enter a number between 1 and 10");
+            }
+            guessesUsed++;
+        }
+
+    </script>
+</body>
+
+</html>
